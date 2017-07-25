@@ -143,5 +143,3 @@ scrape_every_state <- function(state_urls, which_state = NULL, n_to_scrape = NUL
         
     }
 }
-
-scrape_every_state(state_urls, "mi")
