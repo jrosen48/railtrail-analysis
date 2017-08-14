@@ -88,7 +88,7 @@ process_page <- function(page) {
     
 }
 
-process_all_pages <- function(.x = vector_of_pages, .y = state_names, .pb = NULL) {
+process_all_pages <- function(vector_of_pages, state_names, .pb = NULL) {
     
     if ((!is.null(.pb)) && inherits(.pb, "Progress") && (.pb$i < .pb$n)) .pb$tick()$print()
     
@@ -129,4 +129,4 @@ list_of_trails <- map(state_urls, find_urls)
 names(list_of_trails) <- name
 
 pb <- progress_estimated(length(list_of_trails))
-list_of_dfs <- map2_df(list_of_trails, name, process_all_pages, .id = "state", .pb = pb)
+list_of_dfs <- map2_df(.x = list_of_trails, .y = name, process_all_pages, .id = "state", .pb = pb)
